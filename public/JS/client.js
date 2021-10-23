@@ -115,7 +115,7 @@ window.onload = function () {
     register.addEventListener('click', registerUserListener);
 
 
-    let socket = io('/')
+    socket = io('/')
     const ROOM_ID = documentId;
     
     const videoGrid = document.getElementById("video-grid");

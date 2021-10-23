@@ -115,7 +115,7 @@
     // register.addEventListener('click', registerUserListener);
 
 
-
+const ROOM_ID = new URL(window.location.href).pathname.split('/')[1] || 'test';
 
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");

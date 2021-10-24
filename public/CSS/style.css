@@ -46,6 +46,7 @@ font-family: 'Rubik', sans-serif; */
   color: #eeeeee;
   font-family: "Luckiest Guy", cursive;
   font-size: 2rem;
+  text-align: center;
 }
 
 #handle {
@@ -96,28 +97,68 @@ font-family: 'Rubik', sans-serif; */
   padding: 0;
 }
 
-.header {
+#editor-block {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8vh;
-  position: relative;
-  width: 100%;
-  background-color: var(--main-darklg);
+  flex-direction: column;
+  background-color: #1d2635;
 }
 
-.logo > h3 {
-  color: var(--main-light);
+.card {
+  width: 100vw;
+  height: 50px;
+}
+
+#editors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.list-group-item {
+  color: #ffffff;
+  list-style: none;
+  font-family: "PT Serif", serif;
+  font-weight: bolder;
+  border: 1px solid white;
+  border-radius: 10%;
+  color: #161d29;
+  background-color: #eeeade;
+  padding: 2px;
+  margin: 4px;
+}
+
+.list-group-item::before {
+  content: "• ";
+  color: green; /* or whatever color you prefer */
+}
+
+/* text editor */
+.editor-chat {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  width: 100vw;
+}
+#editor {
+  width: 75%;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 50vh;
+  font-family: "Roboto Mono", monospace;
+  padding: 1px 8px 0 5px;
+  color: #c8d2d7;
+  font-size: 10px;
 }
 
 .main {
   overflow: hidden;
-  height: 92vh;
+  height: 30vh;
   display: flex;
 }
 
 .main__left {
-  flex: 0.7;
   display: flex;
   flex-direction: column;
 }
@@ -132,11 +173,10 @@ font-family: 'Rubik', sans-serif; */
 }
 
 video {
-  height: 300px;
+  height: 100px;
   border-radius: 1rem;
-  margin: 0.5rem;
-  width: 400px;
-  object-fit: cover;
+  width: auto;
+  object-fit: contain;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);

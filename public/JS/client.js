@@ -9,10 +9,13 @@ window.onload = function () {
     
     const editor = document.getElementById('editor');
     const textarea = document.getElementById('textarea');
+    // code editor styling
     var Codeeditor = CodeMirror.fromTextArea(document.getElementById("textarea"), {
                 styleActiveLine: true,
                 lineNumbers: true,
-                matchBrackets: true
+                matchBrackets: true,
+                theme: 'dracula',
+                mode: "text/x-csrc",
             }); 
     console.log(editor)
 
@@ -83,7 +86,7 @@ window.onload = function () {
 
 
         const editorBlock = document.getElementById('editor-block');
-        editorBlock.style.display = 'block';
+        editorBlock.style.display = 'flex';
         syncValue = "";
         socket = io();
         socket.emit('register', {

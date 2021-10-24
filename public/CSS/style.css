@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/* font-family: 'Luckiest Guy', cursive;
+font-family: 'PT Serif', serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Rubik', sans-serif; */
 
 :root {
   --main-darklg: #1d2635;
@@ -8,6 +11,86 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* Register Page  */
+.register-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../IMG//svg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #161d29;
+  background-position: bottom;
+}
+
+.glass-container {
+  height: 50%;
+  width: 40%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(22, 29, 41, 0.338);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+  border: 2px rgba(255, 255, 255, 0.4) solid;
+  border-bottom: 2px rgba(40, 40, 40, 0.35) solid;
+  border-right: 2px rgba(40, 40, 40, 0.35) solid;
+}
+.register-flex-1 {
+  color: #eeeeee;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2rem;
+}
+
+#handle {
+  border: 1px solid #848484;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0;
+  height: 40px;
+  width: 275px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+#register {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 9px 27px 10px 27px;
+  text-decoration: none;
+}
+
+#register:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+/* Editor's page */
 * {
   margin: 0;
   padding: 0;
@@ -163,7 +246,7 @@ video {
 }
 
 .header__back {
-  display: none;
+  display: flex;
   position: absolute;
   font-size: 1.3rem;
   top: 17px;

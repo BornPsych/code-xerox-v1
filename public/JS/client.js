@@ -1,4 +1,3 @@
-
 window.onload = function () {
     let socket ;
     const documentId = new URL(window.location.href).pathname.split('/')[1] || 'test';
@@ -6,6 +5,7 @@ window.onload = function () {
     
     const handle = document.getElementById('handle');
     const register = document.getElementById('register');
+    const registerPage = document.getElementById('registerPage');
     
     const editor = document.getElementById('editor');
     const textarea = document.getElementById('textarea');
@@ -79,6 +79,8 @@ window.onload = function () {
     function registerUserListener() {
         handle.style.display = 'none';
         register.style.display = 'none';
+        registerPage.style.display = 'none';
+
 
         const editorBlock = document.getElementById('editor-block');
         editorBlock.style.display = 'block';

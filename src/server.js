@@ -87,6 +87,7 @@ io.on("connection", socket => {
         socket.broadcast.to(roomId).emit("user-connected", userId);
         socket.on("message", (message) => {
         io.to(roomId).emit("createMessage", message, userName);
+        console.log(userName)
         });
     });
 

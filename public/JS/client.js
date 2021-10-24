@@ -201,6 +201,7 @@ window.onload = function () {
     send.addEventListener("click", (e) => {
       if (text.value.length !== 0) {
         socket.emit("message", text.value);
+        console.log(text.value);
         text.value = "";
       }
     });

@@ -59,8 +59,6 @@ app.get('/', (req, res) => {
 io.on("connection", socket => {
     console.log('socket connected..', socket.id);
 
-    console.log(process.env.HOST_NAME);
-
     socket.on('content_change', (data) => {
         const room = data.documentId;
         socket.to(room).emit('content_change', data.changes);
@@ -92,8 +90,8 @@ io.on("connection", socket => {
     io.to(data.id).emit("createMessage", data.message, data.name);
     // console.log(message);
     });
+
     socket.on('disconnect', function (data) {
-        console.log("Disconnected");
         socket.broadcast.emit('user_left', { id: socket.id });
     });
 });

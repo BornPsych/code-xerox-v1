@@ -1,7 +1,6 @@
 window.onload = function () {
     let socket ;
     const documentId = new URL(window.location.href).pathname.split('/')[1] || 'test';
-    // console.log(documentId);
     let name='';
     let user =''; 
     let videoId = '';
@@ -25,7 +24,7 @@ window.onload = function () {
       for (var i = 0; i < minLines; i++) {
         startingValue += '\n';
       }
-      console.log(editor)
+      // console.log(editor)
       Codeeditor.setValue(startingValue);
 
     let syncValue = Array();
@@ -41,7 +40,6 @@ window.onload = function () {
     }
 
     function removeElement(id) {
-        console.log("rajat"+id);
         const video1 = document.getElementById(videoId);
         video1.parentNode.removeChild(video1);
         var elem = document.getElementById(id);
@@ -111,7 +109,7 @@ window.onload = function () {
         setSocketEvents();
 
          socket.on("createMessage", (message, userName) => {
-           console.log(message,user,userName)
+          //  console.log(message,user,userName)
       messages.innerHTML =
         messages.innerHTML +
         `<div class="message">
@@ -190,7 +188,7 @@ window.onload = function () {
           const call = peer.call(userId, stream);
           const video = document.createElement("video");
           video.id = userId;
-          console.log(userId)
+          // console.log(userId)
           call.on("stream", (userVideoStream) => {
             addVideoStream(video, userVideoStream);
           });
@@ -221,7 +219,7 @@ window.onload = function () {
               name:name
     
             });
-            console.log(text.value);
+            // console.log(text.value);
             text.value = "";
           }
         });

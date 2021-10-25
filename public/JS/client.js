@@ -4,6 +4,7 @@ window.onload = function () {
     // console.log(documentId);
     let name='';
     let user =''; 
+    let videoId = '';
     
     const handle = document.getElementById('handle');
     const register = document.getElementById('register');
@@ -40,7 +41,8 @@ window.onload = function () {
     }
 
     function removeElement(id) {
-      console.log(id);
+        console.log(id);
+        videoGrid.remove(video.id);
         var elem = document.getElementById(id);
         return elem.parentNode.removeChild(elem);
     }
@@ -75,6 +77,7 @@ window.onload = function () {
         });
         socket.on('register', (data) => {
             addEditor(data);
+            videoId=data.id;
         });
 
         socket.on('user_left', (data) => {
@@ -199,6 +202,7 @@ window.onload = function () {
           video.addEventListener("loadedmetadata", () => {
             video.play();
             videoGrid.append(video);
+            video.id = videoId;
           });
         };
         

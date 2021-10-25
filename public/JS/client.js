@@ -41,7 +41,7 @@ window.onload = function () {
     }
 
     function removeElement(id) {
-        console.log(id);
+        console.log("rajat"+id);
         const video1 = document.getElementById(videoId);
         video1.parentNode.removeChild(video1);
         var elem = document.getElementById(id);

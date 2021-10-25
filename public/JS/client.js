@@ -97,7 +97,7 @@ window.onload = function () {
         const editorBlock = document.getElementById('editor-block');
         editorBlock.style.display = 'flex';
         syncValue = "";
-        socket = io();
+        // socket = io();
         name=handle.value;
         user = handle.value;
         socket.emit('register', {
@@ -144,7 +144,7 @@ window.onload = function () {
     register.addEventListener('click', registerUserListener);
 
     
-        // socket = io('/')
+        socket = io('/')
         const ROOM_ID = documentId;
         
         const videoGrid = document.getElementById("video-grid");

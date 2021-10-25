@@ -42,7 +42,8 @@ window.onload = function () {
 
     function removeElement(id) {
         console.log(id);
-        videoGrid.remove(video.id);
+        const video1 = document.getElementById(videoId);
+        video1.parentNode.removeChild(video1);
         var elem = document.getElementById(id);
         return elem.parentNode.removeChild(elem);
     }

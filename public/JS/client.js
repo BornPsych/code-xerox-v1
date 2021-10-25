@@ -2,6 +2,8 @@ window.onload = function () {
     let socket ;
     const documentId = new URL(window.location.href).pathname.split('/')[1] || 'test';
     // console.log(documentId);
+    let name='';
+    let user =''; 
     
     const handle = document.getElementById('handle');
     const register = document.getElementById('register');
@@ -14,10 +16,16 @@ window.onload = function () {
                 styleActiveLine: true,
                 lineNumbers: true,
                 matchBrackets: true,
-                theme: 'dracula',
+                theme: 'cobalt',
                 mode: "text/x-csrc",
             }); 
-    console.log(editor)
+      var minLines = 14;
+      var startingValue = '';
+      for (var i = 0; i < minLines; i++) {
+        startingValue += '\n';
+      }
+      console.log(editor)
+      Codeeditor.setValue(startingValue);
 
     let syncValue = Array();
     let keypressed = false;
@@ -89,11 +97,26 @@ window.onload = function () {
         editorBlock.style.display = 'flex';
         syncValue = "";
         socket = io();
+        name=handle.value;
+        user = handle.value;
         socket.emit('register', {
             handle: handle.value,
             documentId: documentId
         });
         setSocketEvents();
+
+         socket.on("createMessage", (message, userName) => {
+           console.log(message,user,userName)
+      messages.innerHTML =
+        messages.innerHTML +
+        `<div class="message">
+            <b><i class="far fa-user-circle"></i> <span> ${
+              userName === user ? "me" : userName
+            }</span> </b> 
+            <span>${message}</span>
+        </div>`;
+        });
+    
     }
 
     function getChanges(input, output) {
@@ -129,21 +152,6 @@ window.onload = function () {
     const backBtn = document.querySelector(".header__back");
     myVideo.muted = true;
     
-    backBtn.addEventListener("click", () => {
-      document.querySelector(".main__left").style.display = "flex";
-      document.querySelector(".main__left").style.flex = "1";
-      document.querySelector(".main__right").style.display = "none";
-      document.querySelector(".header__back").style.display = "none";
-    });
-    
-    showChat.addEventListener("click", () => {
-      document.querySelector(".main__right").style.display = "flex";
-      document.querySelector(".main__right").style.flex = "1";
-      document.querySelector(".main__left").style.display = "none";
-      document.querySelector(".header__back").style.display = "block";
-    });
-    
-    const user = handle;
     
     var peer = new Peer(undefined, {
       path: "/peerjs",
@@ -201,7 +209,12 @@ window.onload = function () {
     
     send.addEventListener("click", (e) => {
       if (text.value.length !== 0) {
-        socket.emit("message", text.value);
+        socket.emit("message", {
+          message:text.value,
+          id:documentId,
+          name:name
+
+        });
         console.log(text.value);
         text.value = "";
       }
@@ -254,17 +267,7 @@ window.onload = function () {
       );
     });
     
-    socket.on("createMessage", (message, userName) => {
-      messages.innerHTML =
-        messages.innerHTML +
-        `<div class="message">
-            <b><i class="far fa-user-circle"></i> <span> ${
-              userName === user ? "me" : userName
-            }</span> </
-            <span>${message}</span>
-        </div>`;
-    });
-    
+   
     
 
 }    

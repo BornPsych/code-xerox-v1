@@ -86,12 +86,12 @@ io.on("connection", socket => {
         console.log(roomId,userId, userName);
         socket.join(roomId);
         socket.broadcast.to(roomId).emit("user-connected", userId);
-        socket.on("message", (message) => {
-        io.to(roomId).emit("createMessage", message, userName);
-        console.log(message);
-        });
     });
-
+    
+    socket.on("message", (data) => {
+    io.to(data.id).emit("createMessage", data.message, data.name);
+    // console.log(message);
+    });
     socket.on('disconnect', function (data) {
         console.log("Disconnected");
         socket.broadcast.emit('user_left', { id: socket.id });

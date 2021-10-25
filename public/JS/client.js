@@ -170,7 +170,8 @@ window.onload = function () {
         });
     
         socket.on("user-connected", (userId) => {
-          connectToNewUser(userId, stream);
+          // connectToNewUser(userId, stream);
+          setTimeout(connectToNewUser,1000,userId,stream)
         });
       });
     
@@ -220,12 +221,12 @@ window.onload = function () {
       const enabled = myVideoStream.getAudioTracks()[0].enabled;
       if (enabled) {
         myVideoStream.getAudioTracks()[0].enabled = false;
-        html = `<i class="fas fa-microphone-slash"></i>`;
+        let html = `<i class="fas fa-microphone-slash"></i>`;
         muteButton.classList.toggle("background__red");
         muteButton.innerHTML = html;
       } else {
         myVideoStream.getAudioTracks()[0].enabled = true;
-        html = `<i class="fas fa-microphone"></i>`;
+        let html = `<i class="fas fa-microphone"></i>`;
         muteButton.classList.toggle("background__red");
         muteButton.innerHTML = html;
       }
@@ -235,12 +236,12 @@ window.onload = function () {
       const enabled = myVideoStream.getVideoTracks()[0].enabled;
       if (enabled) {
         myVideoStream.getVideoTracks()[0].enabled = false;
-        html = `<i class="fas fa-video-slash"></i>`;
+        let html = `<i class="fas fa-video-slash"></i>`;
         stopVideo.classList.toggle("background__red");
         stopVideo.innerHTML = html;
       } else {
         myVideoStream.getVideoTracks()[0].enabled = true;
-        html = `<i class="fas fa-video"></i>`;
+        let html = `<i class="fas fa-video"></i>`;
         stopVideo.classList.toggle("background__red");
         stopVideo.innerHTML = html;
       }

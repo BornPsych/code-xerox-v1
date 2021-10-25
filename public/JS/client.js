@@ -175,6 +175,7 @@ window.onload = function () {
             peer.on("call", (call) => {
               call.answer(stream);
               const video = document.createElement("video");
+              video.id = videoId;
               call.on("stream", (userVideoStream) => {
                 addVideoStream(video, userVideoStream);
               });
@@ -189,6 +190,7 @@ window.onload = function () {
         const connectToNewUser = (userId, stream) => {
           const call = peer.call(userId, stream);
           const video = document.createElement("video");
+          video.id = videoId;
           call.on("stream", (userVideoStream) => {
             addVideoStream(video, userVideoStream);
           });
@@ -203,7 +205,7 @@ window.onload = function () {
           video.addEventListener("loadedmetadata", () => {
             video.play();
             videoGrid.append(video);
-            video.id = videoId;
+            
           });
         };
         

@@ -10,8 +10,8 @@
 
   <h1 align="center">Code Xerox</h1>
 
-  <p align="center">
-   A collaborative code ediotr with live code sharing and video calling.
+  <p align="left">
+   A collaborative code editor with live code sharing and video calling. Try out with this given <a href="https://bornpsych-codexerox.herokuapp.com/">Project link</a>.
   </p>
 </div>
 
@@ -150,7 +150,7 @@ Don't forget to give the project a star! Thanks again!
 
 Yogesh Shahi - [LinkedIn - Yogesh Shahi](https://www.linkedin.com/in/yogesh-shahi/) - engineer.yogeshshahi@gmail.com
 
-Project Link: [bornpsych-codexerox-v1](bornpsych-codexerox.herokuapp.com/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

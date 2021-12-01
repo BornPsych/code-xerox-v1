@@ -74,6 +74,7 @@ Major frameworks/libraries used to bootstrap your project.
 6) Socket.io
 7) Peerjs
 8) Uuid
+9) Code mirror
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
